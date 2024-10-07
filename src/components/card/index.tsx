@@ -1,14 +1,9 @@
-import {
-  CheckOutlined,
-  CloseOutlined,
-  TagsOutlined,
-  WarningOutlined,
-} from "@ant-design/icons";
-import { Button, Popconfirm } from "antd";
+import { Popconfirm, Tag } from "antd";
 import { Task } from "../../models/Task";
-import { getDifTime } from "../../assets/hooks/useGetTime";
+import { MdDelete } from "react-icons/md";
 import { useTaskService } from "../../services/taskService";
-
+import { IoMdDoneAll } from "react-icons/io";
+import { getDifTime } from "../../assets/hooks/useGetTime";
 interface CardProps {
   card: Task;
 }
@@ -16,69 +11,58 @@ interface CardProps {
 function Card({ card }: CardProps) {
   const { handleDone, handleDelete } = useTaskService();
   return (
-    <div className="w-fit border border-solid border-white rounded-sm h-fit px-7 py-3 relative mt-9 mr-9">
-      {card?.status === "INCOMPLETED" && (
-        <div className="absolute top-[-10px] right-[-20px] bg-red-500 rounded-sm text-[12px] p-[2px] flex justify-center items-center gap-1">
-          <TagsOutlined />
-          {card?.status}
+    <div className="">
+      <div
+        className={`w-full h-[5px] mt-4 rounded-tr-[2px] rounded-tl-[2px]  ${
+          card.status === "COMPLETED" ? "bg-[#6fc243]" : "bg-[#fb6944f7]"
+        } `}
+      />
+
+      <div className="w-fit rounded-[2px] rounded-tl-[0px] rounded-tr-[0px]  border text-black border-solid bg-white border-white h-fit px-2 py-2 relative ">
+        <div className="flex justify-between items-center mt-1 ">
+          <Tag>
+            <h3>{card?.title}</h3>
+          </Tag>
+          <Tag>{getDifTime(card?.createdAt)}</Tag>
         </div>
-      )}
-      {card?.status === "COMPLETED" && (
-        <div
-          style={{
-            background: "green",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          className="absolute top-[-14px] right-[-20px] rounded-sm text-[12px] p-[3px] flex justify-center items-center gap-1"
-        >
-          <CheckOutlined className="mb-2" />
-          {card?.status}
+        <div className="w-[160px] ">
+          <p className="text-left break-words py-3 px-1">{card?.description}</p>
         </div>
-      )}
-      {card?.status.toUpperCase() === "INCOMPLETED" ? (
-        <div className="absolute top-[-10px] right-[-20px] bg-red-500 rounded-sm text-[12px] p-[2px] flex justify-center items-center gap-1">
-          <WarningOutlined />
-          {card?.status}
-        </div>
-      ) : (
-        <div
-          style={{
-            background: "green",
-          }}
-          className="absolute top-[-10px] right-[-20px] rounded-sm text-[12px] p-[2px] flex justify-center items-center gap-1"
-        >
-          <TagsOutlined />
-          {card?.status}
-        </div>
-      )}
-      <div className="flex justify-between items-center">
-        <h3>{card?.title}</h3>
-        <h3>{getDifTime(card?.createdAt)}</h3>
-      </div>
-      <div className="w-[140px]">
-        <p className="text-center break-words py-3">{card?.description}</p>
-      </div>
-      <div className="flex justify-center items-center gap-3">
-        {card?.status !== "COMPLETED" ? (
-          <Button
-            onClick={() => handleDone(card)}
-            style={{ background: "green", color: "white" }}
+        <div className="flex justify-between items-center gap-3">
+          <Tag
+            style={{
+              backgroundColor:
+                card?.status === "COMPLETED" ? "#6fc243" : "#fb6944f7",
+              color: "#fff",
+            }}
           >
-            <CheckOutlined /> Done
-          </Button>
-        ) : (
-          <Popconfirm
-            title="Are You Sure To Delete This Task?"
-            onConfirm={() => handleDelete(card)}
-          >
-            <Button style={{ background: "red", color: "white" }}>
-              <CloseOutlined /> Delete
-            </Button>
-          </Popconfirm>
-        )}
+            {card?.status}
+          </Tag>
+
+          {card?.status !== "COMPLETED" ? (
+            <IoMdDoneAll
+              onClick={() => handleDone(card)}
+              style={{
+                color: "#6fc243",
+                cursor: "pointer",
+                fontSize: "20px",
+              }}
+            />
+          ) : (
+            <Popconfirm
+              title="Are You Sure To Delete This Task?"
+              onConfirm={() => handleDelete(card)}
+            >
+              <MdDelete
+                style={{
+                  color: "#fb6944f7",
+                  cursor: "pointer",
+                  fontSize: "20px",
+                }}
+              />
+            </Popconfirm>
+          )}
+        </div>
       </div>
     </div>
   );

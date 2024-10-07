@@ -12,7 +12,7 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ isOpen, setIsOpen }) => {
-  const [deadline, setDeadline] = useState("");
+  const [deadline, setDeadline] = useState("Urgent");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
