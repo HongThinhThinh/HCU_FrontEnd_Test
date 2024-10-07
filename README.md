@@ -3,15 +3,18 @@ To install this project, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/harmony-tea.git
-2. Dowload library for run project
+   git clone https://github.com/HongThinhThinh/HCU_FrontEnd_Test.git
+ 2. ```bash
+    cd .\HCU_FrontEnd_Test\
+   
+3. Dowload library for run project
    ```bash
    npm i
 
-3. Dowload library for run project
+4. To Run Project
    ```bash
    npm run dev
-4.  <p align="left">(<a href="http://localhost:5173/">Clicked Here To View </a>)</p> 
+5.  <p align="left">(<a href="http://localhost:5173/">Clicked Here To View </a>)</p> 
 
 
 <h2>Usage</h2>
