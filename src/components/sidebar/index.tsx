@@ -6,8 +6,12 @@ import "./index.scss";
 import Light from "../light";
 import Form from "../form";
 import { useState } from "react";
+interface SidebarProps {
+  setIsLighting: (value: boolean) => void;
+  isLighting: boolean;
+}
 
-function Sidebar({ setIsLighting, isLighting }) {
+const Sidebar: React.FC<SidebarProps> = ({ setIsLighting, isLighting }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleChangeBg = () => {
     setIsLighting(!isLighting);
@@ -62,6 +66,6 @@ function Sidebar({ setIsLighting, isLighting }) {
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;
