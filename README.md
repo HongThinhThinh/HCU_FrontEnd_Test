@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# Harmony Tea Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Harmony Tea is a web application that enables users to manage their tasks efficiently while promoting a peaceful approach to productivity. It features a user-friendly interface with a light/dark mode toggle, comprehensive task management functionalities, and a responsive design for all devices.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Overview](#project-overview)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Usage](#usage)
+- [Additional Features](#additional-features)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Harmony Tea is designed to help users manage their daily tasks with ease. The application allows users to create, update, delete, and mark tasks as completed. With its intuitive interface, users can focus on their tasks without distractions.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To install this project, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/harmony-tea.git
