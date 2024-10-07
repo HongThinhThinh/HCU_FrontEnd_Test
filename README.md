@@ -11,7 +11,7 @@ To install this project, follow these steps:
 3. Dowload library for run project
    ```bash
    npm run dev
-4.  <p align="right">(<a href="http://localhost:5173/">Clicked Here To View </a>)</p> 
+4.  <p align="left">(<a href="http://localhost:5173/">Clicked Here To View </a>)</p> 
 
 
 <h2>Usage</h2>
